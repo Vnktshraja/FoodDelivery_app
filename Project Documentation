@@ -1,0 +1,66 @@
+
+
+1. Title
+
+	•	Project Title: Food Automation System
+	•	Institution Name : St.Joseph College
+	•	Submission Date : 2025-01-25
+	
+2. Introduction
+
+	•	The Food Delivery App is designed to bridge the gap between customers craving delicious meals and restaurants looking to expand their reach.
+	•	The app leverages modern technologies to ensure a smooth user experience, secure payment methods, and real-time tracking of deliveries. 
+	•	The technologies used: HTML, CSS, J2EE, JDBC, and MySQL.
+
+3. Objectives and Scope 
+
+	•	The app enables customers to search for nearby restaurants, browse menus, and order food without waiting in physical lines.
+	•	To provide a user-friendly platform with features like real-time order tracking, secure payments, and personalized recommendations.
+
+4. System Requirements
+
+	•	Java Development Kit (JDK)
+	•	Web server (Apache Tomcat)
+	•	MySQL Database
+	•	IDE (e.g., Eclipse or IntelliJ IDEA)
+	•	Browser (e.g., Chrome, Firefox)
+
+5. Hardware Requirements:
+
+	•	Processor (e.g., i5 or higher)
+	•	Minimum 4GB RAM
+
+6. Architecture and Design
+
+	•	User sends request → Server processes → Database fetch/update → Response rendered
+	•	The connection between the server and the database is established using JDBC.
+	•	The database is implemented in MySQL with structured tables to store application data (eg:tables for Login and users, dishes).
+
+7. Features and Modules
+
+	•	Login Page: User authentication and Register form.
+	•	Home Page : View and manage the menu, prices, and delivery options.
+	•	Cart : Add or remove food items, manage cart contents.
+	•	Customer Feedback : Allow customers to provide feedback on their experience.
+
+8. Technology Stack
+
+	Frontend:
+	•	HTML & CSS: For UI design and responsiveness.
+
+	Backend:
+	•	J2EE: For server-side processing.
+	•	JDBC: For database connectivity.
+
+	Database:
+	•	MySQL: To store and manage data.
+
+9. Implementation
+	•	The user interface is created using HTML and CSS, providing a responsive and interactive design.
+	•	Client side validation is done in JavaScript on the frontend.
+	•	J2EE Servlets handle the backend logic, and JDBC is used to interact with the MySQL database for data management.
+	•	Deploying the application on Tomcat server.
+
+10. Conclusion
+	•	The project successfully developed a Food Automation App that allows users to browse menus, place orders, and track deliveries. It streamlined the food ordering process, eliminating the need for waiting in queues, and provided an efficient platform for the customers.
+	•	The practical knowledge gained from working with J2EE, JDBC, and MySQL.
