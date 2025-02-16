@@ -130,7 +130,7 @@ body{
     color: white;
     background: crimson;
 }
-#biryani,#paneer,#chicken,#vegetable,#chinese,#south-indian{
+#biryani,#paneer,#chicken,#vegetable,#chinese,#south-indian,#today-special{
     margin-top: 40px;   
 }
 #paneer #item-card,#vegetable #item-card{

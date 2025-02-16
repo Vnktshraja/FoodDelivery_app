@@ -399,6 +399,15 @@ const foodItem= [
     img: 'images/south indian/sambhar-vada.jpg',
     quantity: 1
 },
+{
+    id: 44,
+    name: 'Kala Bhuna',
+    category : 'today special',
+    rating : 3.3,
+    price: 80,
+    img: 'assets/menu-1.jpg',
+    quantity: 1
+},
 ]
 
 export {foodItem};
