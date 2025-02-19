@@ -17,11 +17,11 @@
             <h4>Select a <span style="color: #6064b6">Payment</span> method</h4>
         </div>
 
-        <form action="#">
-            <input type="radio" name="payment" id="visa">
-            <input type="radio" name="payment" id="mastercard">
-            <input type="radio" name="payment" id="paypal">
-            <input type="radio" name="payment" id="AMEX">
+        <form action="">
+            <input type="radio" name="payment" id="visa" onchange="openPage()">
+            <input type="radio" name="payment" id="mastercard" onchange="openPage()">
+            <input type="radio" name="payment" id="paypal" onchange="openPage()">
+            <input type="radio" name="payment" id="AMEX" onchange="openPage()">
 
 
             <div class="category">
@@ -67,6 +67,12 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function openPage() {
+            window.location.href = "../../payment_gateway/payment.html"; // Change this to the desired page
+        }
+        </script>
 
 </body>
 </html>
