@@ -14,7 +14,7 @@
             <p>Registration</p>
         </div>
 
-        <form action="#">
+        <form id="userForm" action="#">
             <div class="user_details">
                 <div class="input_box">
                     <label for="name">Full Name</label>
@@ -43,9 +43,9 @@
             </div>
             <div class="gender">
                 <span class="gender_title">Gender</span>
-                <input type="radio" name="gender" id="radio_1">
-                <input type="radio" name="gender" id="radio_2">
-                <input type="radio" name="gender" id="radio_3">
+                <input type="radio" name="gender" id="radio_1" value="Male">
+                <input type="radio" name="gender" id="radio_2" value="Female">
+                <input type="radio" name="gender" id="radio_3" value="Prefer not to say">
 
                 <div class="category">
                     <label for="radio_1">
@@ -67,7 +67,7 @@
             </div>
         </form>
     </div>
-
+    <script src="register.js" defer></script>
 </body>
 </html>
 
