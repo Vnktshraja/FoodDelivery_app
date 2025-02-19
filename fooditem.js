@@ -330,7 +330,7 @@ const foodItem= [
 {
     id: 37,
     name: 'Butter Masala Dosa',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 4.7,
     price: 75,
     img: 'images/south indian/Butter-Masala-Dosa.png',
@@ -339,7 +339,7 @@ const foodItem= [
 {
     id: 38,
     name: 'Idli',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 4.0,
     price: 30,
     img: 'images/south indian/idli-with-rice-flour.jpg',
@@ -348,7 +348,7 @@ const foodItem= [
 {
     id: 39,
     name: 'Masala Dosa',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 4.2,
     price: 50,
     img: 'images/south indian/masala-dosa.jpg',
@@ -357,7 +357,7 @@ const foodItem= [
 {
     id: 40,
     name: 'Mysore Bonda',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 4.1,
     price: 20,
     img: 'images/south indian/mysore-bonda.jpg',
@@ -366,7 +366,7 @@ const foodItem= [
 {
     id: 41,
     name: 'Onion Uttapam',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 4.2,
     price: 50,
     img: 'images/south indian/onion-uttapam.jpg',
@@ -375,7 +375,7 @@ const foodItem= [
 {
     id: 42,
     name: 'Plain Dosa',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 2.9,
     price: 40,
     img: 'images/south indian/plain-dosa.jpeg',
@@ -384,7 +384,7 @@ const foodItem= [
 {
     id: 43,
     name: 'Rava Uttapam',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 2.8,
     price: 50,
     img: 'images/south indian/Rava-Uttapam.jpg',
@@ -393,7 +393,7 @@ const foodItem= [
 {
     id: 44,
     name: 'Sambhar Vada',
-    category : 'south indian',
+    category : 'south-indian',
     rating : 3.3,
     price: 80,
     img: 'images/south indian/sambhar-vada.jpg',
@@ -402,9 +402,9 @@ const foodItem= [
 {
     id: 44,
     name: 'Kala Bhuna',
-    category : 'today special',
+    category : 'Today special',
     rating : 3.3,
-    price: 80,
+    price: 450,
     img: 'assets/menu-1.jpg',
     quantity: 1
 },

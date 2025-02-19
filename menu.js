@@ -7,15 +7,15 @@ function displayItems(){
     var vegetable=  document.getElementById('vegetable');
     var chinese=  document.getElementById('chinese');
     var southIndian=  document.getElementById('south-indian');
-    var todaySpecial=  document.getElementById('today-special');
+    var todaySpecial=  document.getElementById('Today special');
 
     const biryaniData= foodItem.filter((item)=>item.category=='biryani');
     const chickenData= foodItem.filter((item)=>item.category=='chicken');
     const PaneerData= foodItem.filter((item)=>item.category=='paneer');
     const vegetableData= foodItem.filter((item)=>item.category=='vegetable');
     const chineseData= foodItem.filter((item)=>item.category=='chinese');
-    const southData= foodItem.filter((item)=>item.category=='south indian');
-    const todayData= foodItem.filter((item)=>item.category=='today special');
+    const southData= foodItem.filter((item)=>item.category=='south-indian');
+    const todayData= foodItem.filter((item)=>item.category=='Today special');
     biryaniData.map(item=>{
         
         var itemCard= document.createElement('div');
@@ -126,7 +126,7 @@ function displayItems(){
 
         var itemPrice= document.createElement('p');
         itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : Rs. ' + item.price + ' /-';
+        itemPrice.innerText= 'Price : Rs. ' + item.price + '/-';
 
         itemCard.appendChild(cardTop);
         itemCard.appendChild(img);
@@ -288,7 +288,7 @@ function displayItems(){
 
         var itemPrice= document.createElement('p');
         itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : Rs. ' + item.price + ' /-';
+        itemPrice.innerText= 'Price : Rs. ' + item.price + '/-';
 
         itemCard.appendChild(cardTop);
         itemCard.appendChild(img);
@@ -458,7 +458,7 @@ function totalAmount(){
         sum+= item.price;
     })
     document.getElementById('total-item').innerText= 'Total Item : ' + cartData.length;
-    document.getElementById('total-price').innerText= 'Total Price : Rs. ' + sum + ' /-';
+    document.getElementById('total-price').innerText= 'Total Price : Rs. ' + sum + '/-';
     document.getElementById('m-total-amount').innerText= 'Total Price : Rs. ' + sum + ' /-';
 }
 
@@ -533,4 +533,8 @@ function addAddress(){
     else{
         alert("Address not added")
     }
+}
+
+function selectPayment(){
+    window.location.href= './Select_payment_type_page/paytype.html';
 }
