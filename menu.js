@@ -419,6 +419,7 @@ function incrementItem(){
     currPrice= (incObj.price*incObj.quantity - incObj.price*(incObj.quantity-1))/(incObj.quantity-1);
     incObj.price= currPrice*incObj.quantity;
     totalAmount()
+    sessionStorage.setItem("cartData", JSON.stringify(cartData)); 
     cartItems();
 }
 
@@ -469,6 +470,8 @@ document.getElementById('m-cart-plus').addEventListener('click',cartToggle);
 
 var flag= false;
 function cartToggle(){
+    console.log("test",cartData.length);
+    cartItems();
     if(cartData.length > 0){
         document.getElementById('food-items').classList.toggle('food-items');
         document.getElementById('category-list').classList.toggle('food-items');
@@ -504,7 +507,7 @@ window.onresize= window.onload= function(){
         document.getElementById('food-items').appendChild(cartItem);
     });
         document.getElementById('category-header').after(cloneFoodItems);
-        document.getElementById('food-items').after(cloneCartPage);
+        // document.getElementById('food-items').after(cloneCartPage);
         addEvents()
     }
     if(size>800){
@@ -563,10 +566,18 @@ function selectPayment(){
 function updateCartCount() {
     cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
     document.getElementById("cart-plus").innerText = ` ${cartData.length} Items`;
-    document.getElementById("total-item").innerText = ` ${cartData.length} Items`;
+    document.getElementById("total-item").innerText = `Total Item : ${cartData.length}`;
 }
 
 // Load cart count on page load
 window.onload = function() {
     updateCartCount();
 };
+
+
+function clearSession() {
+    sessionStorage.clear();
+    updateCartCount();
+    alert("Cart cleared!");
+    window.location.reload();
+}
