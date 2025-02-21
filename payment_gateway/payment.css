@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 *{
@@ -98,3 +98,51 @@
 
 /* #27ae60 */
 /* #2ecc71 */
+
+#cart-page{
+  margin: 3px 0;
+  padding: 10px 5px;
+  padding-bottom: 30px;
+  border-top: 1px solid rgb(219, 219, 219);
+}
+#cart-page table thead td{
+  font-size: 20px;
+}
+#cart-page table tbody td{
+  font-size: 18px;
+}
+#cart-page table tbody img{
+  width: 60px;
+  height: 60px;
+}
+
+.m-cart-toggle{
+  color: white;
+  background: lightcoral;
+}
+/* .cart-toggle{
+  display: block;
+}
+.cart-toggle{
+  display: none;
+} */
+#cart-title{
+  font-size: 20px;
+  margin: 0;
+  color: indianred;
+}
+/* #cart-title{
+  font-size: 25px;
+  display: inline-block;
+  font-family: 'Aclonica', sans-serif;
+}*/
+
+  #m-total-amount{
+      display: inline-block;
+      ;
+      color: lightcoral;
+      padding: 8.5px 10px;
+      margin: 0;
+      border:  1px solid lightcoral;
+      margin-top: 15px;
+    } 

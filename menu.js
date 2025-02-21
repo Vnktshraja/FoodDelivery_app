@@ -574,8 +574,9 @@ window.onload = function() {
     updateCartCount();
 };
 
+document.getElementById('clearsession').addEventListener('click', clearAll);
 
-function clearSession() {
+function clearAll() {
     sessionStorage.clear();
     updateCartCount();
     alert("Cart cleared!");
