@@ -336,7 +336,8 @@ document.querySelectorAll('.add-to-cart').forEach(item=>{
     item.addEventListener('click',addToCart)
 })
 
-var cartData= [];
+// var cartData= [];
+var cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
 function addToCart(){
     
     var itemToAdd= this.parentNode.nextSibling.nextSibling.innerText;
@@ -346,6 +347,7 @@ function addToCart(){
     if(index=== -1){
         document.getElementById(itemObj.id).classList.add('toggle-heart');
         cartData= [...cartData,itemObj];
+        sessionStorage.setItem("cartData", JSON.stringify(cartData)); 
     }
     else if(index > -1){
         alert("Added to cart!");
@@ -358,7 +360,6 @@ function addToCart(){
     totalAmount();
     cartItems();
 }
-
 
 function cartItems(){
     var tableBody=  document.getElementById('table-body');
@@ -434,6 +435,7 @@ function decrementItem(){
     else{
         document.getElementById(decObj.id).classList.remove('toggle-heart')
         cartData.splice(ind,1);
+        sessionStorage.setItem("cartData", JSON.stringify(cartData));
         document.getElementById('cart-plus').innerText= ' ' + cartData.length + ' Items';
         document.getElementById('m-cart-plus').innerText= ' ' + cartData.length;
         if(cartData.length < 1 && flag){
@@ -490,21 +492,40 @@ window.onresize= window.onload= function(){
     if(size<800){
         var cloneFoodItems= document.getElementById('food-items').cloneNode(true);
         var cloneCartPage= document.getElementById('cart-page').cloneNode(true);
-        document.getElementById('food-items').remove();
-        document.getElementById('cart-page').remove();
+        // document.getElementById('food-items').remove();
+        // document.getElementById('cart-page').remove();
+        var cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
+    cartData.forEach(item => {
+        // Re-add items to the cart UI
+        // Example: create an element and append it to 'cart-page'
+        var cartItem = document.createElement("div");
+        cartItem.innerText = item.name;
+        document.getElementById("cart-page").appendChild(cartItem);
+        document.getElementById('food-items').appendChild(cartItem);
+    });
         document.getElementById('category-header').after(cloneFoodItems);
         document.getElementById('food-items').after(cloneCartPage);
         addEvents()
     }
     if(size>800){
         var cloneFoodItems= document.getElementById('food-items').cloneNode(true);
-        document.getElementById('food-items').remove();
+        // document.getElementById('food-items').remove();
         document.getElementById('header').after(cloneFoodItems);
 
         var cloneCartPage= document.getElementById('cart-page').cloneNode(true);
-        document.getElementById('cart-page').remove();
+        // document.getElementById('cart-page').remove();
+        var cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
+    cartData.forEach(item => {
+        // Re-add items to the cart UI
+        // Example: create an element and append it to 'cart-page'
+        var cartItem = document.createElement("div");
+        cartItem.innerText = item.name;
+        document.getElementById("cart-page").appendChild(cartItem);
+        document.getElementById('food-items').appendChild(cartItem);
+    });
         document.getElementById('food-items').after(cloneCartPage);
         addEvents()
+
     }
 }
 
@@ -538,3 +559,14 @@ function addAddress(){
 function selectPayment(){
     window.location.href= './Select_payment_type_page/paytype.html';
 }
+
+function updateCartCount() {
+    cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
+    document.getElementById("cart-plus").innerText = ` ${cartData.length} Items`;
+    document.getElementById("total-item").innerText = ` ${cartData.length} Items`;
+}
+
+// Load cart count on page load
+window.onload = function() {
+    updateCartCount();
+};
