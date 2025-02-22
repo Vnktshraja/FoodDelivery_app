@@ -560,7 +560,7 @@ function addAddress(){
 }
 
 function selectPayment(){
-    window.location.href= './Select_payment_type_page/paytype.html';
+    window.location.href= './RespniveInvoice/invoice.html';
 }
 
 function updateCartCount() {
