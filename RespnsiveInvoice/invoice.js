@@ -73,3 +73,27 @@ function printInvoice() {
     printWindow.print();
     printWindow.close();
 }
+
+function sendInvoiceEmail() {
+    let invoiceHtml = document.getElementById("invoice").innerHTML;
+
+    fetch("http://localhost:8080/email/send-invoice", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            to: "recipient@example.com",
+            subject: "Your Invoice",
+            invoiceHtml: invoiceHtml
+        })
+    })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => console.error("Error:", error));
+}
+
+function pay(){
+    window.location.href='../../Select_payment_type_page/paytype.html';
+}
+

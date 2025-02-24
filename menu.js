@@ -1,5 +1,18 @@
-import {foodItem} from './fooditem.js'
+// import {foodItem} from './fooditem.js'
 
+async function getFoodItems() {
+    try {
+      const response = await fetch("http://localhost:8080/foodApp/Controller"); // Replace with your API URL
+      foodItem = await response.json();
+      localStorage.setItem("foodItem", JSON.stringify(foodItem));
+  
+    //   foodItem = [...jsonArray];
+      console.log("inside ->",foodItem);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  var foodItem = JSON.parse(localStorage.getItem("foodItem"))||[];
 function displayItems(){
     var biryani= document.getElementById('biryani');
     var paneer=  document.getElementById('paneer');;
@@ -301,9 +314,9 @@ function displayItems(){
 }
 displayItems();
 
-
+console.log("foodItem -> ", foodItem);
 const vegData= [...new Map(foodItem.map(item=> [item['category'],item])).values()];
-console.log(vegData);
+console.log("Data -> ", vegData);
 
 function selectTaste(){
     var categoryList= document.getElementById('category-list');
@@ -491,14 +504,13 @@ function cartToggle(){
 
 window.onresize= window.onload= function(){
     var size= window.screen.width;
-    console.log(size)
     if(size<800){
         var cloneFoodItems= document.getElementById('food-items').cloneNode(true);
         var cloneCartPage= document.getElementById('cart-page').cloneNode(true);
         // document.getElementById('food-items').remove();
         // document.getElementById('cart-page').remove();
         var cartData = JSON.parse(sessionStorage.getItem("cartData")) || [];
-    cartData.forEach(item => {
+            cartData.forEach(item => {
         // Re-add items to the cart UI
         // Example: create an element and append it to 'cart-page'
         var cartItem = document.createElement("div");
@@ -570,7 +582,10 @@ function updateCartCount() {
 }
 
 // Load cart count on page load
-window.onload = function() {
+window.onload = async function() {
+    console.log("**->", "Page loaded");
+   await getFoodItems();
+    console.log("foodItem -> ", foodItem);
     updateCartCount();
 };
 
