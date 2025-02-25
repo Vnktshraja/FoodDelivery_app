@@ -54,6 +54,8 @@ function cartItems(){
     document.querySelectorAll('.decrease-item').forEach(item=>{
         item.addEventListener('click',decrementItem)
     })
+    var total = cartData.reduce((acc, item)=> acc+item.price,0);
+    document.getElementById('total').innerText= total+'/-';
 }
 
 
@@ -75,25 +77,15 @@ function printInvoice() {
 }
 
 function sendInvoiceEmail() {
-    let invoiceHtml = document.getElementById("invoice").innerHTML;
-
-    fetch("http://localhost:8080/email/send-invoice", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            to: "recipient@example.com",
-            subject: "Your Invoice",
-            invoiceHtml: invoiceHtml
-        })
-    })
-    .then(response => response.text())
-    .then(data => alert(data))
-    .catch(error => console.error("Error:", error));
+    let invoiceHtml = document.getElementById("dwnld").innerHTML;
+    sessionStorage.setItem('invoiceHtml',invoiceHtml);
 }
 
+
+
 function pay(){
+    console.log('payment done');
+    sendInvoiceEmail();
     window.location.href='../../Select_payment_type_page/paytype.html';
 }
 

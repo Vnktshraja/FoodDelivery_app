@@ -583,7 +583,6 @@ function updateCartCount() {
 
 // Load cart count on page load
 window.onload = async function() {
-    console.log("**->", "Page loaded");
    await getFoodItems();
     console.log("foodItem -> ", foodItem);
     updateCartCount();
