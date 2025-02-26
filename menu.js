@@ -565,6 +565,7 @@ function addAddress(){
     var address= prompt('Enter your address','');
     if(address){
         document.getElementById('add-address').innerText= ' ' + address;
+        localStorage.setItem('billToAddress',address);
     }
     else{
         alert("Address not added")
@@ -582,7 +583,7 @@ function updateCartCount() {
 }
 
 // Load cart count on page load
-window.onload = async function() {
+window.onpageshow = window.onload = async function() {
    await getFoodItems();
     console.log("foodItem -> ", foodItem);
     updateCartCount();

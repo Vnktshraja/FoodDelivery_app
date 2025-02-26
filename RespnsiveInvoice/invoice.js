@@ -61,6 +61,7 @@ function cartItems(){
 
 window.onload= function(){
     cartItems();
+    setBillDetails();
 }
 cartItems();
 
@@ -76,3 +77,26 @@ function printInvoice() {
     printWindow.close();
 }
 
+function generateInvoiceNumber() {
+    return "INV-" + Date.now(); // Example: INV-1701234567890
+}
+
+// Set the invoice number in HTML
+document.getElementById("invoice-number").textContent = generateInvoiceNumber();
+
+let today = new Date();
+        let formattedDate = today.toLocaleDateString(); // Default format (depends on locale)
+
+        // Set the date inside the div
+        document.getElementById("today-date").textContent = formattedDate;
+
+        function setBillDetails() {
+            let name = localStorage.getItem("user-name") || "Not Available";
+            let address = localStorage.getItem("billToAddress") || "Address Not Available";
+    
+            document.getElementById("billToName").textContent = name;
+            document.getElementById("billToAddress").textContent = address;
+        }
+    
+        // Call function on page load
+        // document.addEventListener("DOMContentLoaded", setBillDetails);

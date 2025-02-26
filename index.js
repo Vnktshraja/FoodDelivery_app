@@ -1,33 +1,33 @@
 
 var valid = false;
 var passwordFromdb;
-// document.getElementById("clk").addEventListener('click', 
+document.getElementById("").addEventListener('click', 
 
-//   function logging(event){
-//     event.preventDefault();
+  function logging(event){
+    event.preventDefault();
 
-//   const email = document.getElementById("email").value.trim();
-//   const password = document.getElementById('password').value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById('password').value.trim();
 
-//   if (!email || !password) {
-//         alert('Please enter both email and password.');
-//         return;
-//     }
+  if (!email || !password) {
+        alert('Please enter both email and password.');
+        return;
+    }
 
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!emailRegex.test(email)) {
-//         alert('Please enter a valid email address.');
-//         return;
-//     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
 
-//     if(email == 'test@gmail.com' && password == 'admin'){
-//       alert('Login successful!');
-//         window.location.replace( "home.html");
-//     }else {
-//       alert('Invalid email or password.');
-//     }
+    if(email == 'test@gmail.com' && password == 'admin'){
+      alert('Login successful!');
+        window.location.replace( "home.html");
+    }else {
+      alert('Invalid email or password.');
+    }
 
-//   })
+  })
 
 function login(event){
   const email = document.getElementById("email").value.trim();
@@ -71,16 +71,17 @@ async function validateUser(){
             throw new Error("HTTP error! Status: " + response.status);
         }
       }
-      console.log("Response Data:", response);
-      let responseText = await response.text();
 
-        if(responseText === "valid request"){
+      let users = await response.json();
+
+        if(users.password === password){
+            console.log(users.name);
+            localStorage.setItem("user-name", users.name);
         alert('Login successful!');
           window.location.replace( "./home.html");
-        }else if(responseText === "invalid request"){ 
-        alert('Invalid email or password.');
+        }else if(users.password !== password){ 
+        alert('Invalid password.');
         }
-      
     } catch (error) {
       console.error("Error:", error );
       alert("Failed to register user.");
@@ -93,11 +94,11 @@ async function validateUser(){
 }
 
 
-// const buttons = document.querySelectorAll("");
-//     buttons.forEach((button) => {
-//         button.addEventListener("click", () => {
-//             alert("Class-based event triggered!");
+const buttons = document.querySelectorAll("");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            alert("Class-based event triggered!");
             
 
-//         });
-//     });
+        });
+    });

@@ -3,9 +3,7 @@ document.getElementById("billForm").addEventListener("submit", function(e) {
     sendEmail();
     alert("Paid successfully!");
     sessionStorage.clear();
-    localStorage.clear();
-        window.location.href = "../../menu.html#cart-page";
-
+    window.location.href = "../../menu.html#cart-page";
 });
 
 function sendEmail(){
