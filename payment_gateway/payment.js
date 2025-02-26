@@ -3,13 +3,24 @@ document.getElementById("billForm").addEventListener("submit", function(e) {
     sendEmail();
     alert("Paid successfully!");
     sessionStorage.clear();
+    localStorage.clear();
         window.location.href = "../../menu.html#cart-page";
 
 });
 
 function sendEmail(){
+    var cartItem = JSON.parse(sessionStorage.getItem("cartData")) || []; // Default to empty array
+
+    if (!Array.isArray(cartItem)) {
+    cartItem = []; // Ensure cartItem is always an array
+    }
+    let sum = 0;
+    cartItem.forEach(item => {
+    sum += item.price;
+    console.log(sum);
+    });
    
-    var page = sessionStorage.getItem("invoiceHtml");
+    var page = "Order quantity : "+ cartItem.length + " Amount Paid : Rs. " + sum + " /-";
     console.log(page);
 const apiUrl = "http://localhost:8080/foodApp/SendEmailServlet";
     fetch(apiUrl, {
@@ -32,15 +43,15 @@ const apiUrl = "http://localhost:8080/foodApp/SendEmailServlet";
 function totalAmount(){
     var cartItem = JSON.parse(sessionStorage.getItem("cartData")) || []; // Default to empty array
 
-if (!Array.isArray(cartItem)) {
+    if (!Array.isArray(cartItem)) {
     cartItem = []; // Ensure cartItem is always an array
-}
+    }
 
-let sum = 0;
-cartItem.forEach(item => {
+    let sum = 0;
+    cartItem.forEach(item => {
     sum += item.price;
     console.log(sum);
-});
+    });
     
     document.getElementById('m-total-amount').innerText= 'Total Price : Rs. ' + sum + ' /-';
     document.getElementById("cart-title").innerText = `Total Item : ${cartItem.length}`;

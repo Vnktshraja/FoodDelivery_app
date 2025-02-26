@@ -65,7 +65,7 @@ window.onload= function(){
 cartItems();
 
 function printInvoice() {
-    var invoiceContent = document.getElementById('invoice').innerHTML;
+    var invoiceContent = document.getElementById('dwnld').innerHTML;
     var printWindow = window.open('', '', 'width=600,height=600');
     printWindow.document.write('<html><head><title>Print Invoice</title></head><body>');
     printWindow.document.write(invoiceContent);
@@ -74,18 +74,5 @@ function printInvoice() {
     printWindow.focus();
     printWindow.print();
     printWindow.close();
-}
-
-function sendInvoiceEmail() {
-    let invoiceHtml = document.getElementById("dwnld").innerHTML;
-    sessionStorage.setItem('invoiceHtml',invoiceHtml);
-}
-
-
-
-function pay(){
-    console.log('payment done');
-    sendInvoiceEmail();
-    window.location.href='../../Select_payment_type_page/paytype.html';
 }
 

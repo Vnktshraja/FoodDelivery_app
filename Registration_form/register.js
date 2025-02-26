@@ -34,14 +34,14 @@
     }
 
     var user = {
-        userName: userName,
+        name: userName,
         email: email,
         password: password,
         mobile: Number(mobile),
         gender: gender.value
     }
     try {
-        let response = await fetch("http://localhost:8082/foodApp/UserController/", {
+        let response = await fetch("http://localhost:8080/foodApp/UserController", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -52,14 +52,12 @@
         if (!response.ok) {
             throw new Error("HTTP error! Status: " + response.status);
         }
-
-        let data = await response.json();
-        console.log("Response:", data);
+        console.log("Response:", response);
 
         alert("Registration successful!");
         window.location.href = "../../index.html";
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error:", error );
         alert("Failed to register user.");
     }
     });

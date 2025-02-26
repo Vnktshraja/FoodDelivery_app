@@ -596,3 +596,10 @@ function clearAll() {
     alert("Cart cleared!");
     window.location.reload();
 }
+
+document.getElementById('signout').addEventListener('click', signout);
+
+function signout(){
+    sessionStorage.clear();
+    window.location.href= './index.html';
+}
