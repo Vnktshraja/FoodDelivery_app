@@ -17,7 +17,7 @@ function sendEmail(){
     sum += item.price;
     console.log(sum);
     });
-   
+    var email = localStorage.getItem("user-email");
     var page = "Order quantity : "+ cartItem.length + " Amount Paid : Rs. " + sum + " /-";
     console.log(page);
 const apiUrl = "http://localhost:8080/foodApp/SendEmailServlet";
@@ -28,7 +28,7 @@ const apiUrl = "http://localhost:8080/foodApp/SendEmailServlet";
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            to: "venkateshkannan0316@gmail.com",
+            to: email,
             subject: "Your Invoice",
             invoiceHtml: page
         })

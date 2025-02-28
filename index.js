@@ -77,6 +77,7 @@ async function validateUser(){
         if(users.password === password){
             console.log(users.name);
             localStorage.setItem("user-name", users.name);
+            localStorage.setItem("user-email", users.email);
         alert('Login successful!');
           window.location.replace( "./home.html");
         }else if(users.password !== password){ 

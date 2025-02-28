@@ -1,4 +1,4 @@
-// import {foodItem} from './fooditem.js'
+import {foodItems} from './fooditem.js'
 
 async function getFoodItems() {
     try {
