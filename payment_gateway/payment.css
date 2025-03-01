@@ -22,6 +22,12 @@
 
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .container form{
   padding:20px;
   width:700px;

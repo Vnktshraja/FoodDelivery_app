@@ -12,7 +12,7 @@ async function getFoodItems() {
       console.error("Error fetching data:", error);
     }
   };
-  var foodItem = JSON.parse(localStorage.getItem("foodItem"))||[];
+  var foodItem = JSON.parse(localStorage.getItem("foodItem"))||foodItems;
 function displayItems(){
     var biryani= document.getElementById('biryani');
     var paneer=  document.getElementById('paneer');;
@@ -21,6 +21,7 @@ function displayItems(){
     var chinese=  document.getElementById('chinese');
     var southIndian=  document.getElementById('south-indian');
     var todaySpecial=  document.getElementById('Today special');
+    var tea=  document.getElementById('tea');
 
     const biryaniData= foodItem.filter((item)=>item.category=='biryani');
     const chickenData= foodItem.filter((item)=>item.category=='chicken');
@@ -29,6 +30,49 @@ function displayItems(){
     const chineseData= foodItem.filter((item)=>item.category=='chinese');
     const southData= foodItem.filter((item)=>item.category=='south-indian');
     const todayData= foodItem.filter((item)=>item.category=='Today special');
+    const teaData= foodItem.filter((item)=>item.category=='tea');
+
+    teaData.map(item=>{
+        
+        var itemCard= document.createElement('div');
+        itemCard.setAttribute('id','item-card')
+
+        var cardTop= document.createElement('div');
+        cardTop.setAttribute('id','card-top');
+
+        var star= document.createElement('i');
+        star.setAttribute('class','fa fa-star');
+        star.setAttribute('id','rating');
+        star.innerText= ' ' + item.rating;
+
+        var heart= document.createElement('i');
+        heart.setAttribute('class','fa fa-heart-o add-to-cart');
+        heart.setAttribute('id',item.id)
+
+        cardTop.appendChild(star);
+        cardTop.appendChild(heart);
+
+
+        var img= document.createElement('img');
+        img.src=item.img;
+
+        var itemName= document.createElement('p');
+        itemName.setAttribute('id','item-name');
+        itemName.innerText= item.name;
+
+        var itemPrice= document.createElement('p');
+        itemPrice.setAttribute('id','item-price');
+        itemPrice.innerText= 'Price : Rs. ' + item.price + ' /-';
+
+        itemCard.appendChild(cardTop);
+        itemCard.appendChild(img);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+
+        tea.appendChild(itemCard);
+        
+    })
+    
     biryaniData.map(item=>{
         
         var itemCard= document.createElement('div');
@@ -565,7 +609,7 @@ function addAddress(){
     var address= prompt('Enter your address','');
     if(address){
         document.getElementById('add-address').innerText= ' ' + address;
-        localStorage.setItem('billToAddress',address);
+        sessionStorage.setItem('billToAddress', address);
     }
     else{
         alert("Address not added")
@@ -592,7 +636,7 @@ window.onpageshow = window.onload = async function() {
 document.getElementById('clearsession').addEventListener('click', clearAll);
 
 function clearAll() {
-    sessionStorage.clear();
+    sessionStorage.removeItem("cartData");
     updateCartCount();
     alert("Cart cleared!");
     window.location.reload();
@@ -602,5 +646,6 @@ document.getElementById('signout').addEventListener('click', signout);
 
 function signout(){
     sessionStorage.clear();
+    localStorage.clear();
     window.location.href= './index.html';
 }

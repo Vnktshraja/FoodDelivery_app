@@ -1,33 +1,6 @@
 
 var valid = false;
 var passwordFromdb;
-document.getElementById("").addEventListener('click', 
-
-  function logging(event){
-    event.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById('password').value.trim();
-
-  if (!email || !password) {
-        alert('Please enter both email and password.');
-        return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    if(email == 'test@gmail.com' && password == 'admin'){
-      alert('Login successful!');
-        window.location.replace( "home.html");
-    }else {
-      alert('Invalid email or password.');
-    }
-
-  })
 
 function login(event){
   const email = document.getElementById("email").value.trim();
@@ -43,11 +16,11 @@ function login(event){
         alert('Please enter a valid email address.');
         return;
     }
-    validateUser()
+    validateUser(email)
 
 }
 
-async function validateUser(){
+async function validateUser(emails){
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById('password').value.trim();
 
@@ -76,8 +49,8 @@ async function validateUser(){
 
         if(users.password === password){
             console.log(users.name);
-            localStorage.setItem("user-name", users.name);
-            localStorage.setItem("user-email", users.email);
+            sessionStorage.setItem("user-name", users.name);
+            sessionStorage.setItem("user-email", users.email);
         alert('Login successful!');
           window.location.replace( "./home.html");
         }else if(users.password !== password){ 
@@ -85,21 +58,16 @@ async function validateUser(){
         }
     } catch (error) {
       console.error("Error:", error );
-      alert("Failed to register user.");
+      var retry = parseInt(sessionStorage.getItem("retry-count")) || 0;
+      if(retry<3){
+        alert("Failed to register user. Due to server issue.");
+        sessionStorage.setItem("retry-count", retry+1);
+      }else{
+        alert("Logging in as gust user.");
+        sessionStorage.setItem("user-name", "Guest user");
+        sessionStorage.setItem("user-email", emails);
+        window.location.replace( "./home.html");
+      }   
     }
-        
-    }
-
-   
-
+  }
 }
-
-
-const buttons = document.querySelectorAll("");
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            alert("Class-based event triggered!");
-            
-
-        });
-    });

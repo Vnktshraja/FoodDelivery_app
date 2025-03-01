@@ -11,7 +11,7 @@
     var confirmPassword = document.getElementById("confirmPass").value;
     var mobile = document.getElementById("phone").value;
     var gender = document.querySelector('input[name="gender"]:checked');
-
+        sessionStorage.setItem("student-name", name);
 
         if (!gender) {
             alert("Please select a gender.");

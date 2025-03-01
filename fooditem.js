@@ -426,6 +426,24 @@ const foodItems= [
     img: 'assets/menu-3.jpg',
     quantity: 1
 },
+{
+    id: 48,
+    name: 'Special Tea',
+    category : 'tea',
+    rating : 4.2,
+    price: 25,
+    img: 'images/tea.jpg',
+    quantity: 1
+},
+{
+    id: 49,
+    name: 'Lemon Tea',
+    category : 'tea',
+    rating : 4.4,
+    price: 25,
+    img: 'images/peppermintTea.jpg',
+    quantity: 1
+}
 ]
 
 

@@ -17,7 +17,11 @@ function cartItems(){
         
         var rowData1= document.createElement('td');
         var img= document.createElement('img');
-        img.src= item.img;
+        img.src= "../"+item.img;
+        img.width = 90;
+        img.height = 90;
+        img.style.width = "75px";  
+        img.style.height = "75px";
         rowData1.appendChild(img);
     
         var rowData2= document.createElement('td');
@@ -91,8 +95,8 @@ let today = new Date();
         document.getElementById("today-date").textContent = formattedDate;
 
         function setBillDetails() {
-            let name = localStorage.getItem("user-name") || "Not Available";
-            let address = localStorage.getItem("billToAddress") || "Address Not Available";
+            let name = sessionStorage.getItem("user-name") || "Guest User";
+            let address = sessionStorage.getItem("billToAddress") || "Address Not Available";
     
             document.getElementById("billToName").textContent = name;
             document.getElementById("billToAddress").textContent = address;
