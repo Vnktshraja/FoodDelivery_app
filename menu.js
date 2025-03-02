@@ -21,7 +21,9 @@ function displayItems(){
     var chinese=  document.getElementById('chinese');
     var southIndian=  document.getElementById('south-indian');
     var todaySpecial=  document.getElementById('Today special');
-    var tea=  document.getElementById('tea');
+    var teas=  document.getElementById('tea');
+    var snacks=  document.getElementById('snacks');
+    var chats=  document.getElementById('chats');
 
     const biryaniData= foodItem.filter((item)=>item.category=='biryani');
     const chickenData= foodItem.filter((item)=>item.category=='chicken');
@@ -31,6 +33,90 @@ function displayItems(){
     const southData= foodItem.filter((item)=>item.category=='south-indian');
     const todayData= foodItem.filter((item)=>item.category=='Today special');
     const teaData= foodItem.filter((item)=>item.category=='tea');
+    const snacksData= foodItem.filter((item)=>item.category=='snacks');
+    const chatData= foodItem.filter((item)=>item.category=='chats');
+
+    chatData.map(item=>{
+        
+        var itemCard= document.createElement('div');
+        itemCard.setAttribute('id','item-card')
+
+        var cardTop= document.createElement('div');
+        cardTop.setAttribute('id','card-top');
+
+        var star= document.createElement('i');
+        star.setAttribute('class','fa fa-star');
+        star.setAttribute('id','rating');
+        star.innerText= ' ' + item.rating;
+
+        var heart= document.createElement('i');
+        heart.setAttribute('class','fa fa-heart-o add-to-cart');
+        heart.setAttribute('id',item.id)
+
+        cardTop.appendChild(star);
+        cardTop.appendChild(heart);
+
+
+        var img= document.createElement('img');
+        img.src=item.img;
+
+        var itemName= document.createElement('p');
+        itemName.setAttribute('id','item-name');
+        itemName.innerText= item.name;
+
+        var itemPrice= document.createElement('p');
+        itemPrice.setAttribute('id','item-price');
+        itemPrice.innerText= 'Price : Rs. ' + item.price + ' /-';
+
+        itemCard.appendChild(cardTop);
+        itemCard.appendChild(img);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+
+        chats.appendChild(itemCard);
+        
+    })
+
+    snacksData.map(item=>{
+        
+        var itemCard= document.createElement('div');
+        itemCard.setAttribute('id','item-card')
+
+        var cardTop= document.createElement('div');
+        cardTop.setAttribute('id','card-top');
+
+        var star= document.createElement('i');
+        star.setAttribute('class','fa fa-star');
+        star.setAttribute('id','rating');
+        star.innerText= ' ' + item.rating;
+
+        var heart= document.createElement('i');
+        heart.setAttribute('class','fa fa-heart-o add-to-cart');
+        heart.setAttribute('id',item.id)
+
+        cardTop.appendChild(star);
+        cardTop.appendChild(heart);
+
+
+        var img= document.createElement('img');
+        img.src=item.img;
+
+        var itemName= document.createElement('p');
+        itemName.setAttribute('id','item-name');
+        itemName.innerText= item.name;
+
+        var itemPrice= document.createElement('p');
+        itemPrice.setAttribute('id','item-price');
+        itemPrice.innerText= 'Price : Rs. ' + item.price + ' /-';
+
+        itemCard.appendChild(cardTop);
+        itemCard.appendChild(img);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+
+        snacks.appendChild(itemCard);
+        
+    })
 
     teaData.map(item=>{
         
@@ -69,7 +155,7 @@ function displayItems(){
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
 
-        tea.appendChild(itemCard);
+        teas.appendChild(itemCard);
         
     })
     

@@ -431,8 +431,8 @@ const foodItems= [
     name: 'Special Tea',
     category : 'tea',
     rating : 4.2,
-    price: 25,
-    img: 'images/tea.jpg',
+    price: 20,
+    img: 'images/tea/tea.jpg',
     quantity: 1
 },
 {
@@ -441,9 +441,99 @@ const foodItems= [
     category : 'tea',
     rating : 4.4,
     price: 25,
-    img: 'images/peppermintTea.jpg',
+    img: 'images/tea/peppermintTea.jpg',
     quantity: 1
-}
+},
+{
+    id: 50,
+    name: 'Green Tea',
+    category : 'tea',
+    rating : 4.2,
+    price: 25,
+    img: 'images/tea/green_tea.jpg',
+    quantity: 1
+},
+{
+    id: 51,
+    name: 'Black Tea',
+    category : 'tea',
+    rating : 4.1,
+    price: 20,
+    img: 'images/tea/blk.jpg',
+    quantity: 1
+},
+{
+    id: 52,
+    name: 'Veg Puffs',
+    category : 'snacks',
+    rating : 4.1,
+    price: 20,
+    img: 'images/puffs/veg-puffs.jpg',
+    quantity: 1
+},
+{
+    id: 53,
+    name: 'Eggs Puffs',
+    category : 'snacks',
+    rating : 4.3,
+    price: 25,
+    img: 'images/puffs/egg-puffs.jpg',
+    quantity: 1
+},
+{
+    id: 54,
+    name: 'Chicken Puffs',
+    category : 'snacks',
+    rating : 4.5,
+    price: 23,
+    img: 'images/puffs/chicken_puffs.jpg',
+    quantity: 1
+},
+{
+    id: 55,
+    name: 'Samosa',
+    category : 'snacks',
+    rating : 4.8,
+    price: 15,
+    img: 'images/puffs/samosa.jpg',
+    quantity: 1
+},
+{
+    id: 56,
+    name: 'Pav bhaji',
+    category : 'chats',
+    rating : 4.8,
+    price: 15,
+    img: 'images/chats/pav-bhaji.jpg',
+    quantity: 1
+},
+{
+    id: 57,
+    name: 'Dhai Puri',
+    category : 'chats',
+    rating : 4.8,
+    price: 15,
+    img: 'images/chats/dhai-puri.jpg',
+    quantity: 1
+},
+{
+    id: 58,
+    name: 'Masala Puri',
+    category : 'chats',
+    rating : 4.8,
+    price: 15,
+    img: 'images/chats/masala_puri.jpg',
+    quantity: 1
+},
+{
+    id: 58,
+    name: 'Pani Puri',
+    category : 'chats',
+    rating : 4.8,
+    price: 15,
+    img: 'images/chats/Pani_Puri.jpg',
+    quantity: 1
+},
 ]
 
 
