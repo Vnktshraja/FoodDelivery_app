@@ -1,9 +1,21 @@
 document.getElementById("billForm").addEventListener("submit", function(e) {
     e.preventDefault(); // Prevents form reload
+    var valid = true;
+    let numberInput = document.getElementById("cc").value;
+
+let digitsOnly = numberInput.replace(/-/g, ""); // Remove hyphens for digit count check
+
+
+if (!/^\d{16}$/.test(digitsOnly)) {
+    alert("Please enter exactly 16 digits.");
+    valid = false;
+}
+    if(valid){
     sendEmail();
     alert("Paid successfully!");
     sessionStorage.removeItem("cartData");
     window.location.href = "../../menu.html#cart-page";
+    }
 });
 
 function sendEmail(){
