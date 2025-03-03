@@ -526,14 +526,14 @@ const foodItems= [
     quantity: 1
 },
 {
-    id: 58,
+    id: 59,
     name: 'Pani Puri',
     category : 'chats',
     rating : 4.8,
     price: 15,
     img: 'images/chats/Pani_Puri.jpg',
     quantity: 1
-},
+}
 ]
 
 
